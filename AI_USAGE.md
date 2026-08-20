@@ -1,12 +1,11 @@
 # AI Usage
 
-> **⚠️ Please review and edit this file in your own words before submitting.**
-> It is a factual draft of how AI was used to build this project. Confirm every
-> line matches your own recollection, adjust anything that doesn't, and add your
-> own observations. The reviewer wants *your* honest account — not a generated
-> one.
-
 ## Which AI tool(s) I used
+
+- **Gemini**
+  First level of discussion I had with gemini to figure out what can be used and 
+  figured out this py3dbp is a existing package for effective packing and designed my
+  prompt accordingly
 
 - **Claude Code** (Anthropic, Claude Opus) — used to scaffold the Django
   project, write the packing algorithm, models, DRF API, frontend, tests, and
@@ -18,6 +17,7 @@
   the cheapest box fitting an entire order, using **3D bin packing (`py3dbp`)**
   rather than naive `L × W × H` volume math, to avoid real-world edge cases
   (e.g. a 30 cm poster tube being wrongly recommended for a 20 cm box).
+  <Shared the File path to go through the problem statement>
 - Asked for a lightweight frontend for input plus a Django backend for the
   calculation/selection.
 - Answered follow-up design questions: chose **DRF + a template frontend**, and
@@ -51,6 +51,8 @@
   the model validator to `Decimal("0.001")` so the run is warning-free.
 - **A redundant second migration** was generated when the model validator
   changed. Collapsed the migrations back into a single clean `0001_initial`.
+- Gave some extra input on what I want to see and add the response from Packer to show 
+  how to adjust the product in the bin like rotate, keep straight and stuff like that
 
 ## Mistakes the AI made (and how they were caught)
 
