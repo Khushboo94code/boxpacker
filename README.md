@@ -1,5 +1,7 @@
 # 📦 AI-Assisted Box Selection System
 
+[![tests](https://github.com/Khushboo94code/boxpacker/actions/workflows/tests.yml/badge.svg)](https://github.com/Khushboo94code/boxpacker/actions/workflows/tests.yml)
+
 A small Django application that recommends the **cheapest shipping box that
 physically fits an entire order**, using real **3D bin packing** (via
 [`py3dbp`](https://pypi.org/project/py3dbp/)) instead of naive

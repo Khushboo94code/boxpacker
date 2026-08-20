@@ -1,5 +1,11 @@
 # Test Run Output
 
+**GitHub Actions (CI):**
+<https://github.com/Khushboo94code/boxpacker/actions/workflows/tests.yml> — runs
+the full suite on Python 3.12 and 3.13 on every push.
+
+A captured local run is below.
+
 Command:
 
 ```bash
