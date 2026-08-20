@@ -30,11 +30,24 @@ ALLOWED_HOSTS = os.environ.get(
 ).split(",")
 CSRF_TRUSTED_ORIGINS = []
 
-# Railway provides the public domain at runtime; trust it automatically.
-_railway_domain = os.environ.get("RAILWAY_PUBLIC_DOMAIN")
-if _railway_domain:
-    ALLOWED_HOSTS.append(_railway_domain)
-    CSRF_TRUSTED_ORIGINS.append(f"https://{_railway_domain}")
+if ON_RAILWAY:
+    # Trust Railway's own domains: the internal healthcheck host, the private
+    # service network, and any generated public domain (*.up.railway.app).
+    # This is what lets the platform healthcheck reach "/" without a 400
+    # DisallowedHost, even before a public domain is generated.
+    ALLOWED_HOSTS += [
+        "healthcheck.railway.app",
+        ".railway.app",
+        ".up.railway.app",
+        ".railway.internal",
+    ]
+    for _var in ("RAILWAY_PUBLIC_DOMAIN", "RAILWAY_PRIVATE_DOMAIN"):
+        _dom = os.environ.get(_var)
+        if _dom:
+            ALLOWED_HOSTS.append(_dom)
+    _public = os.environ.get("RAILWAY_PUBLIC_DOMAIN")
+    if _public:
+        CSRF_TRUSTED_ORIGINS.append(f"https://{_public}")
 
 # APPLICATIONS ---------------------------------------------------------------
 INSTALLED_APPS = [
@@ -125,9 +138,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # header, so Django can tell it is really being served over HTTPS.
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-    # Safe behind Railway's proxy (it forwards the header above), so redirecting
-    # HTTP -> HTTPS won't loop.
-    SECURE_SSL_REDIRECT = True
+    # SSL redirect is OPT-IN. Railway's internal healthcheck hits the app over
+    # plain HTTP (no X-Forwarded-Proto), so forcing a redirect turns the "/"
+    # healthcheck into a 301 and the deploy is marked unhealthy. Public traffic
+    # already arrives over HTTPS via Railway's edge. Enable it once the domain
+    # is live by setting DJANGO_SSL_REDIRECT=1.
+    SECURE_SSL_REDIRECT = os.environ.get("DJANGO_SSL_REDIRECT", "0") == "1"
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
     SECURE_HSTS_SECONDS = 31536000  # 1 year
