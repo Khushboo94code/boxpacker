@@ -1,0 +1,163 @@
+[
+  {
+    "model": "selection.box",
+    "pk": 1,
+    "fields": {
+      "name": "Small Mailer",
+      "inner_length": "20.00",
+      "inner_width": "15.00",
+      "inner_height": "10.00",
+      "max_weight": "2.00",
+      "cost": "0.50",
+      "is_active": true
+    }
+  },
+  {
+    "model": "selection.box",
+    "pk": 2,
+    "fields": {
+      "name": "Medium Box",
+      "inner_length": "30.00",
+      "inner_width": "25.00",
+      "inner_height": "20.00",
+      "max_weight": "8.00",
+      "cost": "1.20",
+      "is_active": true
+    }
+  },
+  {
+    "model": "selection.box",
+    "pk": 3,
+    "fields": {
+      "name": "Large Box",
+      "inner_length": "45.00",
+      "inner_width": "35.00",
+      "inner_height": "30.00",
+      "max_weight": "20.00",
+      "cost": "2.50",
+      "is_active": true
+    }
+  },
+  {
+    "model": "selection.box",
+    "pk": 4,
+    "fields": {
+      "name": "Poster Tube",
+      "inner_length": "80.00",
+      "inner_width": "12.00",
+      "inner_height": "12.00",
+      "max_weight": "3.00",
+      "cost": "1.80",
+      "is_active": true
+    }
+  },
+  {
+    "model": "selection.box",
+    "pk": 5,
+    "fields": {
+      "name": "XL Box",
+      "inner_length": "60.00",
+      "inner_width": "50.00",
+      "inner_height": "40.00",
+      "max_weight": "40.00",
+      "cost": "4.00",
+      "is_active": true
+    }
+  },
+  {
+    "model": "selection.product",
+    "pk": 1,
+    "fields": {
+      "sku": "BK-001",
+      "name": "Paperback Book",
+      "length": "20.00",
+      "width": "13.00",
+      "height": "3.00",
+      "weight": "0.300"
+    }
+  },
+  {
+    "model": "selection.product",
+    "pk": 2,
+    "fields": {
+      "sku": "MG-001",
+      "name": "Coffee Mug",
+      "length": "12.00",
+      "width": "9.00",
+      "height": "11.00",
+      "weight": "0.400"
+    }
+  },
+  {
+    "model": "selection.product",
+    "pk": 3,
+    "fields": {
+      "sku": "PO-001",
+      "name": "A2 Poster (rolled)",
+      "length": "45.00",
+      "width": "6.00",
+      "height": "6.00",
+      "weight": "0.400"
+    }
+  },
+  {
+    "model": "selection.product",
+    "pk": 4,
+    "fields": {
+      "sku": "TS-001",
+      "name": "T-Shirt (folded)",
+      "length": "25.00",
+      "width": "20.00",
+      "height": "4.00",
+      "weight": "0.250"
+    }
+  },
+  {
+    "model": "selection.product",
+    "pk": 5,
+    "fields": {
+      "sku": "SN-001",
+      "name": "Sneakers (boxed)",
+      "length": "33.00",
+      "width": "22.00",
+      "height": "13.00",
+      "weight": "1.200"
+    }
+  },
+  {
+    "model": "selection.product",
+    "pk": 6,
+    "fields": {
+      "sku": "LP-001",
+      "name": "Laptop",
+      "length": "36.00",
+      "width": "25.00",
+      "height": "3.00",
+      "weight": "1.800"
+    }
+  },
+  {
+    "model": "selection.product",
+    "pk": 7,
+    "fields": {
+      "sku": "WB-001",
+      "name": "Water Bottle",
+      "length": "8.00",
+      "width": "8.00",
+      "height": "28.00",
+      "weight": "0.600"
+    }
+  },
+  {
+    "model": "selection.product",
+    "pk": 8,
+    "fields": {
+      "sku": "DB-005",
+      "name": "Dumbbell 5kg",
+      "length": "20.00",
+      "width": "12.00",
+      "height": "12.00",
+      "weight": "5.000"
+    }
+  }
+]
